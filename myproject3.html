@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Padauk:wght@400;700&family=Play:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: webkit-fill-available;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: url(freepik__expand__75924.png), linear-gradient(#f2fcfcbd, #f2fcfcbd);
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-repeat: repeat;
+            place-items: center;
+            height: webkit-fill-available;
+        }
+
+        h1{
+            color: #0245a3;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .box {
+            border: 1px solid transparent 80%;
+            border-radius: 15px;
+            width: max-content;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            font-family: 'Lilita-one', sans-serif;
+            gap: 1.5rem;
+            background-color: #f2fcfcc1;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            
+        }
+
+        .heading {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .class-1 {
+            display: flex;
+            flex-direction: row;
+            gap: 3rem;
+        }
+
+        .label {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+        }
+
+        input {
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 2px solid #013071;
+            outline: none;
+            padding: .7rem;
+            font-family: 'paduak',  sans-serif;
+            font-weight: 400;
+        }
+
+        .label div {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .label  div label {
+            position: relative;
+            font-size: 1rem;
+            font-weight: 500;
+            bottom: 40px;
+            left: 10px;
+            pointer-events: none;
+            transition:all 0.3s linear;
+            font-weight: 300;
+            opacity: 50%;
+        }
+
+        input:focus~label,
+        input:valid~label{
+            transform: translateY(-27px);
+            opacity: 100%;
+            color: #013071;
+            font-weight: 450;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        button {
+            position: relative;
+            right: 35px;
+            width: calc(100% + 70px);
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid #013071;
+            background-color: #013071;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            body{
+                background:url(freepik__expand__75924.png), linear-gradient(#f2fcfcbd, #f2fcfcbd);
+                background-blend-mode: overlay;
+            }
+
+            .main {
+                padding: 2rem;
+                display: block;
+                height: max-content;
+            }
+            
+            .box {
+                padding: 1rem;
+            }
+
+            .heading {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .class-1 {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .label {
+                gap: .7rem;
+            }
+
+            .label div {
+                width: 50vw;
+            }
+
+            .label div input{
+                width: 100%;
+                height: max-content;
+            }
+
+            .footer {
+                gap: 1.5rem;
+            }
+
+            button {
+                width: 100%;
+                right: 0;
+            }
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+
+            <div class="heading">
+                <img src="IMG_20250221_191430_483.jpg" alt="">
+                <h1>FILL YOUR INFO</h1>
+            </div>
+
+            <div class="class-1">
+
+                <div class="label">
+                    <div><input type="text" id="name" required>
+                    <label for="name">username</label></div>
+                    <div><input type="text" id="roll" required>
+                    <label for="roll">roll-num</label></div>
+                    <div><input type="text" id="semester" required>
+                    <label for="semester">semester</label></div>
+                </div>
+
+                <div class="label">
+                    <div><input type="text" id="section" required>
+                    <label for="section">section</label></div>
+                    <div><input type="text" id="mail" required>
+                    <label for="mail">mail</label></div>
+                    <div><input type="text" id="phone" required>
+                    <label for="phone">phone-num</label></div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <button>Submit</button>
+                <p>make sure to correct all your info you filled</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
