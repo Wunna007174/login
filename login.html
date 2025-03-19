@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bc2b23453f.js" crossorigin="anonymous"></script>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Padauk:wght@400;700&family=Play:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --plasma-color-1: #ff00ffbe;
+            --plasma-color-2: #0000ffc9;
+            --plasma-color-3: #289f9f;
+            --plasma-color-4: #cfcf45;
+        }
+
+        body {
+            background-color: black;
+            color: #eee;
+            font-family:  "Roboto", serif;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;            
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 50% 50%, var(--plasma-color-1), transparent 60%),
+                radial-gradient(circle at 100% 100%, var(--plasma-color-2), transparent 60%),
+                radial-gradient(circle at 0% 100%, var(--plasma-color-3), transparent 70%),
+                radial-gradient(circle at 0% 100%, var(--plasma-color-4), transparent 60%);
+            background-size: 200% 200%;
+            background-position: 0 0;
+            mix-blend-mode: screen;
+            filter: blur(30px);
+            animation: plasmaFlow 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes plasmaFlow {
+
+            0%,
+            100% {
+                background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+            }
+
+            75% {
+                background-position: 100% 0, 0 100%, 100% 100%, 0 0;
+            }
+
+            50% {
+                background-position: 100% 100%, 0 0, 100% 0, 0 100%;
+            }
+
+            25% {
+                background-position: 0 100%, 100% 0, 0 0, 100% 100%;
+            }
+        }
+
+        .header {
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+            height: 10vh;
+            box-shadow: 0 5px 10px var(--plasma-color-4);
+        }
+
+        .frame {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav{
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+        .nav a::before{
+            content: "";
+            width: 100%;
+            position: absolute;
+            height: 2px;
+            bottom: -5px;
+            background-color: var(--plasma-color-4);
+            transition: .3s ease all;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        .nav a:hover::before{
+            transform: scaleX(1);
+        }
+        .icon{
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+        }
+        .Login{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background-color: rgba(0, 0, 0, 0.406);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            margin-top: 7vh;
+        }
+        .Login input{
+            display: block;
+            padding: .5rem;
+            border-radius: 25px ;
+            color: white;
+            border: 0;
+            outline: none;    
+            background-color: transparent;
+            box-shadow: inset 1px 1px 1px 1px var(--plasma-color-3);
+        }
+        .username{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .foot{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        .foot a{
+            text-decoration: none;
+            color: var(--plasma-color-3);
+        }    
+        label{
+            position: absolute;
+            pointer-events: none;
+            bottom: 7px;
+            left: 10px;
+            transition: .3s ease all;
+            opacity: 50%;
+        }
+        input:focus~label,
+        input:valid~label{
+            transform: translateY(-25px);
+            opacity: 100%;
+        }
+       
+        </style>
+</head>
+
+<body>
+    <div class="container"></div>
+    <div class="parent">
+        <div class="header"> 
+            <h1>Logo</h1>
+        <div class="nav">
+            <a href="www.google.com">HOME</a><a href="#">STORE</a><a href="#">ABOUT</a><a href="#">BLOG</a><a href="#">CONTACT</a>
+        </div>
+            <div class="icon">
+                <i class="fa-regular fa-lightbulb"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        
+        <div class="frame">
+                <div class="Login">
+                <h1>LOGIN</h1>
+                <div class="username"><input type="text" name="" id="mm" class="input" required><label for="mm">username</label></div>
+                <div class="username"><input type="password" name="" id="nn" required><label for="nn">password</label></div>
+                <input type="submit" value="Login" style="width: 45%;color: white;">
+                <div class="foot"><a href="#">SignUp</a><a href="#">forget password?</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

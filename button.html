@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLICKME</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            animation: all 2s linear infinite;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0c0404;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .button {
+            background-color: rgba(255, 255, 255, 0.801);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 11.4vh;
+            width: 20.4vw;
+            border-radius: 22px;
+            box-shadow: 0 0 10px 5px #5bd3eb48;
+            position: relative;
+            z-index: 1;
+        }
+        button {
+            color: rgb(0, 255, 174);
+            font-size: clamp(1rem, 1.5vw, 2rem);
+            text-shadow: 0 0 10px #5b5bebf1;
+            font-weight: bold;
+            border: none;
+            height: 10vh;
+            width: 20vw;
+            border-radius: 20px;
+            background-image: radial-gradient(#bb63ff ,#bb63ff,#9e5beb, #5b5beb);
+        }
+        button:hover {
+            background-image: linear-gradient(to bottom right, #bb63ff,#bb63ff);
+            box-shadow: 0 0 10px 5px #5b5bebf1;
+            font-size: clamp(1.5rem, 2vw, 3rem);
+        }
+        .falling-text {
+            position: absolute;
+            top: -10vh;
+            font-size: 3rem;
+            font-weight: bold;
+            animation: fall linear infinite;
+            opacity: 0.9;
+            color: hsl(calc(360 * var(--hue)), 100%, 75%);
+            background: none;
+            text-shadow: 
+                -1px -1px 0 #999, 
+                -2px -2px 0 #888, 
+                -3px -3px 0 #777, 
+                -4px -4px 0 #666, 
+                -5px -5px 0 #555;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh) rotateX(0deg) rotateY(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(110vh) rotateX(360deg) rotateY(360deg);
+                opacity: 0;
+            }
+        }
+        p{
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <div class="button"><a href="machain.html"><button>Click-Me</button></a></div>
+    <p>If you experience somthing unconfortable for you, I really apologized firstly <br>
+    In the first game you have to pick up the toies till enough amount. <br>
+    caution::don't forget to take the toies that you picked up.If not you can reach the goal!</p>
+    <script>
+        function createFallingText() {
+            const text = document.createElement("div");
+            text.classList.add("falling-text");
+            
+            const options = ["Y", "U", "YuY"];
+            text.innerText = options[Math.floor(Math.random() * options.length)];
+            text.style.setProperty('--hue', Math.random()); // Set a random hue for color variation
+            document.body.appendChild(text);
+            
+            const startX = Math.random() * window.innerWidth;
+            text.style.left = `${startX}px`;
+            text.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            
+            setTimeout(() => text.remove(), 5000);
+        }
+        setInterval(createFallingText, 300);
+    </script>
+</body>
+</html>
